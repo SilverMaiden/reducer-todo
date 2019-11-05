@@ -13,7 +13,7 @@ const TodoForm = props => {
                 onChange={props.handleChange} />
 
                 <Button onClick={() => props.dispatch({ type: 'ADD', payload: props.inputValue})} > Add Todo </Button>
-                <Button onClick={props.clearHandler}> Clear Completed </Button>
+                <Button onClick={() => props.dispatch({ type: 'CLEAR'})}> Clear Completed </Button>
                 </Form>
             </>
         )
