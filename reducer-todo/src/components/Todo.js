@@ -12,14 +12,21 @@ function Todo() {
     const handleChange = (event) => {
         event.preventDefault();
         setInputValue(event.target.value);
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        setInputValue('');
         console.log(inputValue);
     }
 
 
     return (
         <>
+            <h1> My Todo List </h1>
             <TodoList dispatch={dispatch} state={state}  />
-            <TodoForm handleChange={handleChange} dispatch={dispatch} inputValue={inputValue} />
+            <br />
+            <TodoForm handleChange={handleChange} handleSubmit={handleSubmit} setInputValue={setInputValue} dispatch={dispatch} inputValue={inputValue} />
          </>
 
     )

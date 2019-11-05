@@ -9,7 +9,6 @@ export const initialState = [{
 export const reducer = (state, action) => {
   switch(action.type) {
       case 'ADD':
-          console.log(state);
           return [...state, {item:action.payload, completed:false, id:uuid.v4()}];
 
       case 'TOGGLE':
