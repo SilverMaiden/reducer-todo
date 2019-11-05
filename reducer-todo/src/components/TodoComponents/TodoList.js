@@ -6,14 +6,21 @@ import React, {useReducer} from 'react';
 import {reducer, initialState } from '../../reducers/reducer';
 
 const TodoList = (props) => {
-    console.log(props.state);
+       console.log(props.state)
+       let myTag;
 
     return (
         <>
-        {props.state.map(todo => (
-            <li> {todo.item} </li>
+      {props.state.map(todo => (
+           todo.completed ? (
+           <strike> <li onClick={() => props.dispatch({type: 'TOGGLE', payload:todo})}> {todo.item} </li></strike>
+      ) : (
+           <li onClick={() => props.dispatch({type: 'TOGGLE', payload:todo})}> {todo.item} </li>
+      )
+
         ))}
-         </>
+
+           </>
 
     )
 }

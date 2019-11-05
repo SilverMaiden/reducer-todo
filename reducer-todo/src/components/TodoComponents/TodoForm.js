@@ -10,9 +10,9 @@ const TodoForm = props => {
                 name="todo"
                 id="todo"
                 placeholder="todoList"
-                onChange={props.changeHandler} />
+                onChange={props.handleChange} />
 
-                <Button onClick={props.submitHandler} > Add Todo </Button>
+                <Button onClick={() => props.dispatch({ type: 'ADD', payload: props.inputValue})} > Add Todo </Button>
                 <Button onClick={props.clearHandler}> Clear Completed </Button>
                 </Form>
             </>

@@ -1,4 +1,4 @@
-import React,{useReducer} from "react";
+import React,{useReducer, useState} from "react";
 //Components
 import TodoList from "./TodoComponents/TodoList";
 import TodoForm from "./TodoComponents/TodoForm";
@@ -7,14 +7,19 @@ import {reducer, initialState } from '../reducers/reducer';
 
 function Todo() {
     const [state, dispatch] = useReducer(reducer, initialState);
-    console.log(state);
+    const [inputValue, setInputValue] = useState('');
 
+    const handleChange = (event) => {
+        event.preventDefault();
+        setInputValue(event.target.value);
+        console.log(inputValue);
+    }
 
 
     return (
         <>
-            <TodoList state={state} />
-            <TodoForm dispatch={dispatch}/>
+            <TodoList dispatch={dispatch} state={state}  />
+            <TodoForm handleChange={handleChange} dispatch={dispatch} inputValue={inputValue} />
          </>
 
     )
